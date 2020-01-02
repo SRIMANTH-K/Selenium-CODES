@@ -1,0 +1,24 @@
+public class excell {
+	
+
+	public static void main(String[] args) throws Exception {
+		// TODO Auto-generated method stub
+
+		
+		File src = new File("D:\\ExcelData\\TestData.xlsx");
+		
+		FileInputStream fis = new FileInputStream(src);
+		
+		XSSFWorkbook wb = new XSSFWorkbook(fis);
+		
+	    XSSFSheet sheet1 = wb.getSheetAt(1);
+	    int rowConut= sheet1.getLastRowNum();
+	    for (int i = 0; i < rowConut+1; i++) {
+            Row row = sheet1.getRow(i);
+            //Create a loop to print cell values in a row
+            for (int j = 0; j < row.getLastCellNum(); j++) {
+                //Print excel data in console
+                System.out.print(row.getCell(j).getStringCellValue());
+            }
+            System.out.println();
+	    }}} 

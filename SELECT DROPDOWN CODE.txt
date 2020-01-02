@@ -1,0 +1,37 @@
+public class TESTINGDROPDWON {
+
+
+	@Test
+	public void selectdropdwon() throws InterruptedException {
+
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		driver.navigate().to("https://www.facebook.com/");
+
+		driver.manage().window().maximize();
+		
+		WebElement day_dropdown=driver.findElement(By.id("day"));
+		Select day_dd=new Select(day_dropdown);
+		day_dd.selectByIndex(11);
+		Thread.sleep(2000);
+		
+		WebElement month_dropdown=driver.findElement(By.id("month"));
+		Select month_dd=new Select(month_dropdown);
+		
+		month_dd.selectByVisibleText("May");
+		Thread.sleep(2000);
+		
+		WebElement dob_dropdown=driver.findElement(By.id("year"));
+		Select dob_dd=new Select(dob_dropdown);
+		dob_dd.selectByValue("1993");
+		Thread.sleep(2000);
+		
+		driver.findElement(By.id("u_0_6")).click();
+		Thread.sleep(2000);
+		driver.close();
+		
+
+	}
+}

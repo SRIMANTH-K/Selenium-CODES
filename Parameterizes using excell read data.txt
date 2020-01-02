@@ -1,0 +1,53 @@
+package excelread;
+
+import com.test.utility.Xls_Reader;
+
+public class Parameterized {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		Xls_Reader reader=new Xls_Reader("D:\\workspace\\READEXCEL\\src\\testdata\\Book2.xlsx");
+
+		int rowCount=reader.getRowCount("Sheet1");
+		
+		for(int rowNum=1; rowNum<=rowCount; rowNum++) {
+			 
+			System.out.println("===================");
+			
+			
+			String firstname= reader.getCellData("Sheet1", "Firstname", rowNum);
+		
+			System.out.println(firstname);
+		
+		
+			String lastname= reader.getCellData("Sheet1", "Lastname", rowNum);
+			System.out.println(lastname);
+
+			String address= reader.getCellData("Sheet1", "Address", rowNum);
+			System.out.println(address);
+
+			String email= reader.getCellData("Sheet1", "Email", rowNum);
+			System.out.println(email);
+
+			String gender= reader.getCellData("Sheet1", "Gender", rowNum);
+			System.out.println(gender);
+
+
+			String languages= reader.getCellData("Sheet1", "Languages", rowNum);
+			System.out.println(languages);
+
+			String skills= reader.getCellData("Sheet1", "Skills", rowNum);
+			System.out.println(skills);
+
+			String country= reader.getCellData("Sheet1", "Country", rowNum);
+			System.out.println(country);
+
+		}
+		
+		
+		
+		
+	}
+
+}

@@ -1,0 +1,68 @@
+String firstname= reader.getCellData("REGSTRATION", "Firstname", 2);
+
+		System.out.println(firstname);
+
+		String Lastname= reader.getCellData("REGSTRATION", "Lastname", 2);
+
+		System.out.println(Lastname);
+		
+		String Address= reader.getCellData("REGSTRATION", "Address", 2);
+
+		System.out.println(Address);
+		
+		String Emailaddress= reader.getCellData("REGSTRATION", "Email address", 2);
+
+		System.out.println(Emailaddress);
+		
+		String Phone= reader.getCellData("REGSTRATION", "Phone", 2);
+
+		System.out.println(Phone);
+		
+		
+		String Gender= reader.getCellData("REGSTRATION", "Gender", 2);
+
+		System.out.println(Gender);
+		
+		String Hobbies= reader.getCellData("REGSTRATION", "Hobbies", 2);
+
+		System.out.println(Hobbies);
+		
+		String Languages= reader.getCellData("REGSTRATION", "Languages", 2);
+
+		System.out.println(Languages);
+		
+		String Skills= reader.getCellData("REGSTRATION", "Skills", 2);
+
+		System.out.println(Skills);
+
+
+		
+		
+		String Country= reader.getCellData("REGSTRATION", "Country", 2);
+        System.out.println(Country);
+		
+		String SelectCountry= reader.getCellData("REGSTRATION", "Select Country", 2);
+
+		System.out.println(SelectCountry);
+
+		System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+
+		WebDriver driver =new ChromeDriver();
+
+		driver.navigate().to("http://demo.automationtesting.in/Register.html");
+
+		driver.manage().window().maximize();
+		
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[1]/div[1]/input")).sendKeys(firstname);
+
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[1]/div[2]/input")).sendKeys(Lastname);
+       
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[2]/div/textarea")).sendKeys(Address);
+		
+		driver.findElement(By.xpath("//*[@id=\"eid\"]/input")).sendKeys(Emailaddress);
+		
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[4]/div/input")).sendKeys(Phone);
+		
+		driver.findElement(By.xpath("//*[@id=\"basicBootstrapForm\"]/div[5]/div/label[1]/input")).click();
+        Thread.sleep(5000);
+		driver.close();

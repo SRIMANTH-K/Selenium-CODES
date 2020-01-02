@@ -1,0 +1,24 @@
+
+
+public class RADIO {
+
+	public static void main(String[] args) {
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		
+		WebDriver driver =new FirefoxDriver();
+		
+		driver.navigate().to("http://seleniumpractise.blogspot.com/2016/08/how-to-automate-radio-button-in.html");
+		
+		List< WebElement> radio= driver.findElements(By.xpath("//input[@name='lang' and @type='radio']"));
+		
+		for(int i=0; i<radio.size();i++)
+		{
+			
+			WebElement local_radio=radio.get(i);
+			String value= local_radio.getAttribute("value");
+			
+			System.out.println("values from radio buttons are:"+  value);
+		}
+	}
+}

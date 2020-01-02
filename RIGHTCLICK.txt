@@ -1,0 +1,33 @@
+public class rightclick {
+
+	@Test
+	public void clcick() throws InterruptedException {
+
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+
+		WebDriver driver=new FirefoxDriver();
+
+		driver.navigate().to("http://swisnl.github.io/jQuery-contextMenu/demo.html");
+		
+		Actions action =new Actions(driver);
+		
+		
+		WebElement rigthclickbutton=driver.findElement(By.xpath("/html/body/div/section/div/div/div/p/span"));
+		
+		action.contextClick(rigthclickbutton).build().perform();
+		
+		WebElement copy= driver.findElement(By.cssSelector(".context-menu-icon-copy"));
+		
+//		Thread.sleep(5000);
+//		copy.getText();
+//		System.out.println(copy.getText());
+		copy.click();
+		Alert alert=driver.switchTo().alert();
+		alert.getText();
+        Thread.sleep(5000);
+		System.out.println(alert.getText());
+		alert.accept();
+		
+		
+}
+}

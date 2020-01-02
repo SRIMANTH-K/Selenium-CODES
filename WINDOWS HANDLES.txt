@@ -1,0 +1,50 @@
+
+public class WINDOWHANDLE {
+
+	@Test
+	public void windowhandle() throws InterruptedException {
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		driver.get("http://demo.automationtesting.in/Windows.html");
+		driver.getTitle();
+		
+		
+		
+		driver.findElement(By.xpath("//*[@id=\"Tabbed\"]/a/button")).click();
+		
+		
+		Set<String> windowsId = driver.getWindowHandles();
+		driver.getWindowHandles(); //will give u 
+                //one set oject it is string type
+                //object name is windowsId
+              //i want to get the values from set objcet
+               //so to get the values from set object we will use iterator
+
+
+
+		java.util.Iterator<String> itr=windowsId.iterator();
+		 
+              //this iterator will give one iterate of string
+		 //iterator is method
+
+
+
+		String Parentid = itr.next();
+		String childid = itr.next();
+		
+		WebDriver ctitle= driver.switchTo().window(childid);
+     
+		Thread.sleep(5000);
+		System.out.println("Title of child page is :" + driver.getTitle());
+		
+		driver.close();
+		
+		driver.switchTo().window(Parentid);
+		System.out.println("Titleofparent page is:" +  driver.getTitle());
+		
+		driver.close();
+		}
+}

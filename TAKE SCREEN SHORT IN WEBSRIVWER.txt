@@ -1,0 +1,14 @@
+@Test
+	public void takesch() throws IOException {
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		WebDriver driver = new FirefoxDriver();
+		 driver.manage().window().maximize();
+		 driver.get("https://www.softwaretestingmaterial.com/capture-screenshot-using-selenium-webdriver");
+		 
+
+                 File screenshotFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		 Files.copy(screenshotFile, new File("D:\\SoftwareTestingMaterial.png"));
+		 
+		 System.out.println("success");
+		 driver.close();
+		 driver.quit(); 

@@ -1,0 +1,12 @@
+@Test
+	public void pagescrolldwon() throws Throwable {
+		
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		driver.get("http://jqueryui.com");
+		Thread.sleep(1000);
+		driver.manage().window().maximize();
+		((JavascriptExecutor)driver).executeScript("scroll(0,800)");
+		

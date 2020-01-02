@@ -1,0 +1,26 @@
+public class MULTIPLEWINDOWSX {
+
+	@Test
+	 public void actionsClass() throws InterruptedException{
+	 System.setProperty("webdriver.chrome.driver", "D:\\chromedriver_win32\\chromedriver.exe");
+	 WebDriver driver = new ChromeDriver();
+	 
+	 driver.navigate().to("http://demo.automationtesting.in/Windows.html");
+	 driver.findElement(By.cssSelector("button.btn-info:nth-child(1)")).click();
+	 Thread.sleep(5000);
+	 Set<String> windowtab = driver.getWindowHandles();
+	 Iterator<String> itr = windowtab.iterator();
+	 
+	 String parentid=itr.next();
+	 String childid=itr.next();
+	 
+	 driver.switchTo().window(childid);
+	 Thread.sleep(5000);
+	 driver.close();
+	 driver.switchTo().window(parentid);
+	 Thread.sleep(5000);
+	 driver.close();
+	 
+			 
+}
+}

@@ -1,0 +1,32 @@
+public class TOTALMONTHLIST {
+
+
+	@Test
+	public void selectdropdwon() throws InterruptedException {
+
+		System.setProperty("webdriver.gecko.driver", "D:\\geckodriver-v0.24.0-win64\\geckodriver.exe");
+		
+		WebDriver driver=new FirefoxDriver();
+		
+		driver.navigate().to("https://www.facebook.com/");
+
+		driver.manage().window().maximize();
+		
+		WebElement day_dropdown=driver.findElement(By.id("day"));
+		Select day_dd=new Select(day_dropdown);
+		
+		List<WebElement> day_list=day_dd.getOptions();
+		
+		int total_day= day_list.size();
+		
+		System.out.println("Total day counts is:" + total_day);
+		
+		
+		for(WebElement ele: day_list)
+		{
+			String day_count=ele.getText();
+			
+			System.out.println("Total days counts no:" + day_count);
+		}
+	}
+}
